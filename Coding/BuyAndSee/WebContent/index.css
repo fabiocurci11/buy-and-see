@@ -1,0 +1,62 @@
+html, 
+body {
+    height: 100%;
+}
+
+body{
+	background-color: red;
+}
+
+#div_right{
+	float:right;
+}
+ 
+.fixed-top{
+	height: 10%;
+}
+
+.nav-item{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.dropdown-item:hover{
+	background-color: black;
+	color:white;
+}
+
+
+.container-fluid{
+	background-color: #9E9E9E;
+	position: absolute;
+    top: 60px;
+    height: fit-content;
+    margin-bottom: 0px!important;
+ }
+
+.row{
+	margin-left: 30px;
+    margin-right: 30px;
+    height: 100%;
+    margin-top: 70px;
+} 
+
+
+.card-img-top{
+	width: 50%;
+    margin: auto;
+}
+
+.container{
+	width:80%;
+}
+
+.col-3{
+	background-color: #343a4073;
+}
+
+#h1_page{
+	margin-left: 30px;
+	border-bottom: 2px solid #343a40;
+    width: fit-content;
+}
