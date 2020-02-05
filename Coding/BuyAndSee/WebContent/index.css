@@ -52,11 +52,15 @@ body{
 }
 
 .col-3{
-	background-color: #343a4073;
+	/*background-color: #343a4073;*/
 }
 
 #h1_page{
 	margin-left: 30px;
 	border-bottom: 2px solid #343a40;
     width: fit-content;
+}
+
+#dislay_all_film{
+	background-color: #343a4073;
 }

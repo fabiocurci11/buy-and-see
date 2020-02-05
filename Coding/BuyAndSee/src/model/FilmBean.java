@@ -9,6 +9,7 @@ public class FilmBean {
 	private double durata;
 	private String genere;
 	private String lingua;
+	private String descrizione;
 	private boolean trailer;
 	private float prezzo;
 	
@@ -88,6 +89,17 @@ public class FilmBean {
 	}
 
 
+	
+	public String getDescrizione() {
+		return descrizione;
+	}
+
+
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	
+	
 	public boolean isTrailer() {
 		return trailer;
 	}
