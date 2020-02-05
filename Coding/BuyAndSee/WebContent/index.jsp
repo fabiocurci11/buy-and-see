@@ -131,22 +131,26 @@ $(document).ready(function(){
 
 function myFunc(jsonData){
 	var data=JSON.parse(jsonData);
-	alert("post parse");
+	//alert("post parse");
  	var size_json = Object.keys(data).length; //lunghezza array json
-  	var count = 0;
+  	var count_column = 0;
  	var j = 0;
  	var j2 = 0;
-  	size_json=6; 
-  	console.log(size_json);
-	for(i=0; i<size_json-j2; i++){
+  	//size_json = 11; 
+  	alert("size: " + size_json);
+	for(i=0; i<size_json; i++){
 		
 		var div_all_film=document.getElementById("dislay_all_film");
 		var row_grid = document.createElement("div"); //creo div_scarpa con class=scarpa
 		row_grid.setAttribute('class', 'row');
-		alert("in row");
+		//alert("in row");
 		
-		for(j=0; j<=(size_json-j)+1; j++){
+		for(j=0; j<=3; j++){
+			alert("" + data[j].titolo);
 			
+			//alert("count_column: " + count_column);
+			if(count_column == size_json){return;}
+			count_column++;
 			var col_grid = document.createElement("div"); 
 			col_grid.setAttribute('class', 'col-3');
 			
@@ -159,6 +163,7 @@ function myFunc(jsonData){
 			
 			var div_card = document.createElement("div"); 
 			div_card.setAttribute('class', 'card text-primary');
+			div_card.setAttribute('style', 'margin-bottom: 20px');
 			
 			var temp_img = document.createElement("img");
 			temp_img.setAttribute('class', 'card-img-top');
@@ -171,8 +176,15 @@ function myFunc(jsonData){
 			var h4 = document.createElement("h4");
 			h4.setAttribute('class', 'card-title');
 			
-			var p_card_text = document.createElement("p");
-			p_card_text.setAttribute('class', 'card-text-black');
+			var p_anno = document.createElement("p");
+			p_anno.setAttribute('class', 'p_info_film');
+			var p_genere = document.createElement("p");
+			p_genere.setAttribute('class', 'p_info_film');
+			var p_durata = document.createElement("p");
+			p_durata.setAttribute('class', 'p_info_film');
+			var p_prezzo = document.createElement("p");
+			p_prezzo.setAttribute('class', 'p_info_film');
+			//p_card_text.setAttribute('class', 'card-text-black');
 			
 			var a = document.createElement("a");
 			a.setAttribute('href', '#');
@@ -187,20 +199,23 @@ function myFunc(jsonData){
 			div_card.appendChild(temp_img);
 			temp_img.after(div_card_body);
 			div_card_body.appendChild(h4);
-			h4.after(p_card_text);
-			p_card_text.after(a);
+			h4.after(p_anno);
+			p_anno.after(p_genere);
+			p_genere.after(p_durata);
+			p_durata.after(p_prezzo);
+			p_prezzo.after(a);
 			
-			h2.innerHTML = "Card Image";
-			p.innerHTML = "Image at the top";
+			//h2.innerHTML = "Card Image";
+			//p.innerHTML = "Image at the top";
 			h4.innerHTML = "John Doe";
-			p_card_text.innerHTML = "Some example text some example p_card_text";
+			p_anno.innerHTML = "Anno: " + data[i].anno + "<br>";
+			p_genere.innerHTML = "Genere: " + data[i].genere + "<br>";
+			p_durata.innerHTML = "Durata: " + data[i].anno + "<br>";
+			p_prezzo.innerHTML = "Prezzo: " + data[i].anno + "<br>";
 			a.innerHTML = "See profile";
-			alert(count);
-			count++;
-			j2=j+j2+1;
-			alert(j2);
-		}
 		
+		}
+		//if(count_column == size_json){break;}
 	}
 }
 

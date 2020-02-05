@@ -64,3 +64,11 @@ body{
 #dislay_all_film{
 	background-color: #343a4073;
 }
+
+.p_info_film{
+	margin-bottom: 10px;
+}
+
+.btn{
+	margin-left: 40px;
+}
