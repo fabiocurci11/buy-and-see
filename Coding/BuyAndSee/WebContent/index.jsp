@@ -15,6 +15,12 @@
 </head>
 <body>
 
+<%
+	Boolean log=false;
+	log = (Boolean)session.getAttribute("login");
+	System.out.println("log attribute:" + log);
+%>
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent" >
@@ -52,9 +58,13 @@
     	
     	<ul class="navbar-nav">
       		<li class="nav-item">
-        		<a class="nav-link" href="login.jsp">Login</a>
+      			<%if((log == null) || log.equals(false)) {System.out.println("resta login");%>
+        			<a class="nav-link" href="login.jsp">Login</a>
+        		<%}else{System.out.println("iventa logout");%>					<!-- se utente fa login -->
+   				 	<a class="nav-link" href="Utente_Logout">Logout</a>
+   				 <%} %>
       		</li>
-      	</ul>   	
+      	</ul> 
   	
 </nav>   
 
@@ -189,6 +199,7 @@ function myFunc(jsonData){
 			var a = document.createElement("a");
 			a.setAttribute('href', '#');
 			a.setAttribute('class', 'btn btn-primary');
+			a.setAttribute('style', 'margin-left: 40px;');
 			
 			div_all_film.appendChild(row_grid);
 			row_grid.appendChild(col_grid);
