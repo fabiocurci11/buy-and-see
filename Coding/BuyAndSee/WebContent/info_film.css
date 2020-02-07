@@ -1,0 +1,48 @@
+.container-fluid{
+    /*height: 85%;*/
+}
+
+#div_info_film{
+	height: 90%;
+	background-color: white;
+}
+
+.card{
+	width: 30%;
+    margin: auto;
+	background-color: bisque;
+} 
+
+
+.card-img-top{
+	left: 28%;
+}
+
+.card-body{
+	text-align: center;
+}
+
+#div_descr{
+	height: 40%;
+    background-color: burlywood;
+    width: 50%;
+    margin: auto;
+}
+
+.card-title{
+	text-align: center;
+}
+
+#div_trailer_acquista{
+	height: 40%;
+    background-color: #343a40;
+    width: 35%;
+    margin: auto;
+    padding: 25px;
+}
+
+#form_acquista{
+	position: relative;
+    bottom: 50px;
+}
+

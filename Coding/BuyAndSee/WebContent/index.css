@@ -43,8 +43,12 @@ body{
 
 
 .card-img-top{
-	width: 50%;
+	height: 220px;
+    width: 150px;
+    /* width: 50%; */
     margin: auto;
+    left: 19%;
+    position: relative;
 }
 
 .container{
@@ -69,4 +73,14 @@ body{
 	margin-bottom: 10px;
 }
  
+ .input_hidden{
+ 	width: 0px;
+    height: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    padding-bottom: 0px;
+    border-bottom-width: 0px;
+    padding-top: 0px;
+ }
 

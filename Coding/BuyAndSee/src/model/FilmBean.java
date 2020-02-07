@@ -17,6 +17,10 @@ public class FilmBean {
 	public FilmBean() {
 		
 	}
+	
+	public FilmBean(String title) {
+		this.titolo = title;
+	}
 
 
 	public int getId() {
