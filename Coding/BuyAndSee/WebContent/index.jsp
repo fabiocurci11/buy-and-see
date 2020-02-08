@@ -57,6 +57,15 @@
       		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     	</form>
     	
+    	<%if((log == null) || log.equals(false)) {%>
+    	<%}else{%>
+    		<ul class="navbar-nav">
+      			<li class="nav-item">
+      				<a class="nav-link" href="profilo.jsp">Profilo</a>
+      			</li>
+      		</ul>  
+    	<%}%>
+    	
     	<ul class="navbar-nav">
       		<li class="nav-item">
       			<%if((log == null) || log.equals(false)) {System.out.println("resta login");%>

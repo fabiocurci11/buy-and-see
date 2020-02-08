@@ -24,22 +24,27 @@
  	<form method="post" action= "Utente_login" name="formLogin" id="myform">
   	
     	<div class="form-group">
-      		<label for="email">Carta di credito:</label>
+      		<label for="email">Nome intestatario:</label>
       		<input type="text" class="form-control" id="username" placeholder="Inserisci Username" name="username" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
-      		<label for="pwd">Password:</label>
+      		<label for="pwd">Cognome intestatario:</label>
       		<input type="password" class="form-control" id="password" placeholder="Inserisci Password" name="password" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
-      		<label for="email">Username:</label>
+      		<label for="email">Numero carta:</label>
       		<input type="text" class="form-control" id="username" placeholder="Inserisci Username" name="username" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
-      		<label for="pwd">Password:</label>
+      		<label for="pwd">Scadenza carta:</label>
+      		<input type="password" class="form-control" id="password" placeholder="Inserisci Password" name="password" style="width:70%;">
+    	</div>
+    	
+    	<div class="form-group">
+      		<label for="pwd">Codice di sicurezza:</label>
       		<input type="password" class="form-control" id="password" placeholder="Inserisci Password" name="password" style="width:70%;">
     	</div>
     

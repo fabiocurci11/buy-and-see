@@ -1,0 +1,26 @@
+
+.container{
+	height: 85%;
+	width: 77%!important;
+}
+
+#div_profilo{
+    background-color: red;
+}	
+	
+	
+.img{
+	width: 50%;
+    height: 60%;
+}		
+.utente_info{
+	width: 20%;
+	height: 20%;
+	float: left;
+	margin-left: 10%;
+	margin-top: 6%;
+	text-align: center;
+	border: 1px solid black;
+	background-color: whitesmoke;
+}
+

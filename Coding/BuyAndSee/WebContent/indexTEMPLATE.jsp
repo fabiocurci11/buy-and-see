@@ -49,11 +49,22 @@
       		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     	</form>
     	
+    	<%System.out.println("#@log: " + log);%>
+    	
+    	<%if((log == null) || log.equals(false)) {%>
+    	<%}else{%>
+    		<ul class="navbar-nav">
+      			<li class="nav-item">
+      				<a class="nav-link" href="profilo.jsp">Profilo</a>
+      			</li>
+      		</ul>  
+    	<%}%>
+    	
     	<ul class="navbar-nav">
       		<li class="nav-item">
       			<%if((log == null) || log.equals(false)) {%>
         			<a class="nav-link" href="login.jsp">Login</a>
-        		<%}else{%>					<!-- se utente fa login -->
+        		<%}else{%>					<!-- se utente fa login --> 
    				 	<a class="nav-link" href="Utente_Logout">Logout</a>
    				 <%} %>
       		</li>
