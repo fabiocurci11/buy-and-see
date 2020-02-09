@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,12 @@ public class Utente_registrazione extends HttpServlet {
 		String email = request.getParameter("email");
 		System.out.println("e:" + email);
 		
+		if(validateNome(nome) != true) response.sendRedirect("registrazione.jsp");				
+		if(validateCognome(cognome) != true) response.sendRedirect("registrazione.jsp");		
+		if(validateEmail(email) != true) response.sendRedirect("registrazione.jsp");				
+		if(validateUsername(username) != true) response.sendRedirect("registrazione.jsp");			
+		if(validatePassword(password) != true) response.sendRedirect("registrazione.jsp");	
+		
 		
 		UtenteDAO ud = new UtenteDAO();
 		int reg = ud.Registration(username, password, nome, cognome, email);
@@ -70,5 +77,64 @@ public class Utente_registrazione extends HttpServlet {
 		}
 		
 	}
+	
+	
+
+	private boolean validateNome(String Nome){
+		Pattern p = Pattern.compile("/^[a-zA-Z]{2,15}$/");
+		if(p.matcher(Nome) != null){
+			return true;
+		}
+		
+		else{
+			return false;
+		}
+	}
+	
+	private boolean validateCognome(String Cognome){
+		Pattern p = Pattern.compile("/^[a-zA-Z]{2,15}$/");
+		if(p.matcher(Cognome) != null){
+			return true;
+		}
+		
+		else{
+			return false;
+		}
+	}
+	
+	private boolean validateEmail(String Email) {
+		Pattern p = Pattern.compile("/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w+)+$/");
+		if(p.matcher(Email) != null){
+			return true;
+			
+		}
+		
+		else{
+			return false;
+		}
+	}
+	
+	private boolean validateUsername(String Username) {
+		Pattern p = Pattern.compile("/^[A-Za-z0-9._]{4,10}$/");
+		if(p.matcher(Username) != null){
+			return true;
+		}
+		
+		else{
+			return false;
+		}
+	}
+	
+	private boolean validatePassword(String Password){
+		Pattern p = Pattern.compile("/^(\\S){5,15}$/");
+		if(p.matcher(Password) != null){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	
 
 }
