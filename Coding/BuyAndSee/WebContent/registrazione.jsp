@@ -89,16 +89,16 @@ function validateFormReg() {
 }
 
 function validateNomeReg(nome){
-	alert("validiamo: " + nome);
-	var letters = /^[a-zA-Z]{2,15}$/;
+	//alert("validiamo: " + nome);
+	var letters = /^[a-zA-Z]{3,20}$/; //qualsiasi lettera dell'alfabeto di lunghezza minimo 3 max 20 caratteri
 	if(nome.value.match(letters)){
-		alert("nome ok");
+		//alert("nome ok");
 		nome.style.border = "2px solid green";
 		return true;
 	}
 	
 	else{
-		alert("nome sbagliato");
+		//alert("nome sbagliato");
 		nome.focus();
 		nome.style.border = "2px solid #f50000";
 		return false;
@@ -106,16 +106,16 @@ function validateNomeReg(nome){
 }
 
 function validateCognomeReg(cognome){
-	alert("validiamo: "+cognome);
-	var letters = /^[a-zA-Z]{2,15}$/;
+	//alert("validiamo: "+cognome);
+	var letters = /^[a-zA-Z]{3,20}$/; //qualsiasi lettera dell'alfabeto di lunghezza minimo 3 max 20 caratteri
 	if(cognome.value.match(letters)){
-		alert("cognome ok");
+		//alert("cognome ok");
 		cognome.style.border = "2px solid green";
 		return true;
 	}
 	
 	else{
-		alert("cognome sbagliato");
+		//alert("cognome sbagliato");
 		cognome.focus();
 		cognome.style.border = "2px solid #f50000";
 		return false;
@@ -123,16 +123,16 @@ function validateCognomeReg(cognome){
 }
 
 function validateUsernameReg(usr){
-	alert("validiamo: " + usr);
-	var letters = /^[A-Za-z0-9._]{4,10}$/;
+	//alert("validiamo: " + usr);
+	var letters = /^[A-Za-z0-9._]{4,10}$/; //può contenere[qualsiasi lettera dell'alfabeto, cifre da 0 a 9, un punto e un tratto basso] di lunghezza minimo 4 max 10 caratteri
 	if(usr.value.match(letters)){
-		alert("usr ok");
+		//alert("usr ok");
 		usr.style.border = "2px solid green";
 		return true;
 	}
 	
 	else{
-		alert("Username deve contenere da 4 a 10 caratteri alfanumerici o _ o .");
+		//alert("Username deve contenere da 4 a 10 caratteri alfanumerici o _ o .");
 		usr.focus();
 		usr.style.border = "2px solid #f50000";
 		return false;
@@ -140,33 +140,35 @@ function validateUsernameReg(usr){
 }
 
 function validateEmailReg(email){
-	alert("validiamo: " + email);
-	var letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
+	//alert("validiamo: " + email);
+	//var letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
+	var letters = /[^@\s]+@[^\.\s]+\.[a-zA-Z]+$/;  
+	
 	if(email.value.match(letters)){
-		alert("email ok");
+		//alert("email ok");
 		email.style.border = "2px solid green";
 		return true;
 	}
 	
 	else{
 		alert("email scorretta");
-		email.focus();
+		//email.focus();
 		email.style.border = "2px solid #f50000";
 		return false;
 	}
 }
 
 function validatePasswordReg(psw){
-	alert("validiamo: " + psw);
-	var letters = /^(\S){5,15}$/;
+	//alert("validiamo: " + psw);
+	var letters = /^(\S){5,15}$/; //può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
 	if(psw.value.match(letters)){
-		alert("psw ok");
+		//alert("psw ok");
 		psw.style.borderColor = "green";
 		return true;
 	}
 	
 	else{
-		alert("La password deve essere da 5 a 15 caratteri e senza spazi");
+		//alert("La password deve essere da 5 a 15 caratteri e senza spazi");
 		psw.focus();
 		psw.style.border = "2px solid #f50000";
 		return false;

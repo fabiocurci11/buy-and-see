@@ -103,7 +103,7 @@
 $(document).ready(function(){
     //alert("ciao");
     $.get("Film_doAll", function(data,status){
-    	alert("Data: " + data + "\nStatus: " + status);
+    	//alert("Data: " + data + "\nStatus: " + status);
     	myFunc(data);
     });
 });

@@ -81,7 +81,7 @@ public class Utente_registrazione extends HttpServlet {
 	
 
 	private boolean validateNome(String Nome){
-		Pattern p = Pattern.compile("/^[a-zA-Z]{2,15}$/");
+		Pattern p = Pattern.compile("/^[a-zA-Z]{3,20}$/");
 		if(p.matcher(Nome) != null){
 			return true;
 		}
@@ -92,7 +92,7 @@ public class Utente_registrazione extends HttpServlet {
 	}
 	
 	private boolean validateCognome(String Cognome){
-		Pattern p = Pattern.compile("/^[a-zA-Z]{2,15}$/");
+		Pattern p = Pattern.compile("/^[a-zA-Z]{3,20}$/");
 		if(p.matcher(Cognome) != null){
 			return true;
 		}
@@ -103,7 +103,7 @@ public class Utente_registrazione extends HttpServlet {
 	}
 	
 	private boolean validateEmail(String Email) {
-		Pattern p = Pattern.compile("/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w+)+$/");
+		Pattern p = Pattern.compile("/[^@\\s]+@[^\\.\\s]+\\.[a-zA-Z]+$/");
 		if(p.matcher(Email) != null){
 			return true;
 			
