@@ -23,7 +23,7 @@
 	<div id="div_profilo">
 		<div class="utente_info">
 			<h3 style="color: black;">Film Acquistati</h3>
-			<input type="image" src="img/film_acquistati.png" class="img" onclick="">
+			<a href="film_acquistati.jsp"><input type="image" src="img/film_acquistati.png" class="img" onclick=""></a>
 		</div> 
 	</div>
 	

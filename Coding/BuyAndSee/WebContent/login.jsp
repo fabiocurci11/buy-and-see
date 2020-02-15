@@ -46,7 +46,7 @@
       		<input type="password" class="form-control" id="password" placeholder="Inserisci Password" name="password" style="width:70%;">
     	</div>
     
-    	<button type="submit" class="btn btn-primary" id="button_login">Login</button>
+    	<button type="submit" class="btn btn-primary" id="button_login">Login</button> 
  	 </form>
   
   

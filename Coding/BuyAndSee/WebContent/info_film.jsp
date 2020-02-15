@@ -16,6 +16,7 @@
 
  <LINK rel="stylesheet" href="info_film.css" type="text/css">
  
+<% String idfilm = request.getParameter("idfilm"); System.out.println("@@@@idfilm: "+idfilm);%> 
 <% String title = request.getParameter("titolo"); System.out.println("@@@@film_bean_titolo: "+title);%> 
 <% String immagine = request.getParameter("immagine"); System.out.println("@@@@immagine: "+immagine);%> 
 <% String annoUscita = request.getParameter("annoUscita"); System.out.println("@@@@annoUscita: "+annoUscita);%> 
@@ -70,8 +71,9 @@
 		<input class="input_hidden" type="hidden" name="titolo" value="drammatico">
 		<button type="submit" class="btn btn-primary btn-lg">Visiona Trailer</button>
 		
-		<form method="post" action="acquista.jsp" id="form_acquista">
-			<input class="input_hidden" type="hidden" name="titolo" value="drammatico">
+		<form method="post" action="<%=response.encodeURL("acquista.jsp")%>" id="form_acquista">
+			<!-- <input class="input_hidden" type="hidden" name="titolo" value="drammatico">  -->
+			<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
 			<button type="submit" class="btn btn-primary btn-lg" style="float: right;">Acquista</button>
 		</form>
 	</div>

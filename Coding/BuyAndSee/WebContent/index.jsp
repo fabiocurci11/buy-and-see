@@ -173,6 +173,12 @@ function myFunc(jsonData){
 			form.setAttribute('method', 'post');
 			form.setAttribute('action', 'info_film.jsp');
 			
+			var input_idfilm = document.createElement("input");
+			input_idfilm.setAttribute('class', 'input_hidden');
+			input_idfilm.setAttribute('type', 'hidden');
+			input_idfilm.setAttribute('name', 'idfilm');
+			input_idfilm.setAttribute('value', ''+data[j].idfilm);
+			
 			var input_titolo = document.createElement("input");
 			input_titolo.setAttribute('class', 'input_hidden');
 			input_titolo.setAttribute('type', 'hidden');
@@ -252,7 +258,9 @@ function myFunc(jsonData){
 			p_genere.after(p_durata);
 			p_durata.after(p_prezzo);
 			p_prezzo.after(form);
-			form.appendChild(input_titolo)
+			
+			form.appendChild(input_idfilm);
+			input_idfilm.after(input_titolo);
 			input_titolo.after(input_immagine);
 			input_immagine.after(input_annoUscita);
 			input_annoUscita.after(input_durata);
