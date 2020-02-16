@@ -20,7 +20,7 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent" >
     	<ul class="navbar-nav mr-auto">
       		<li class="nav-item">
-        		<a class="nav-link" href="index.jsp">Home</a>
+        		<a class="nav-link" href="<%=response.encodeURL("index.jsp")%>">Home</a>
       		</li>
       		
       		<li class="nav-item dropdown" id="sh2">

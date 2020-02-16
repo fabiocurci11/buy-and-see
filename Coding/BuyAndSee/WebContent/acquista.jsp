@@ -19,8 +19,9 @@
  
  
 <% String idfilm = request.getParameter("idfilm"); System.out.println("####idfilm: "+idfilm);%> 
-<% UtenteBean ub = (UtenteBean)session.getAttribute("utenteBean"); %> 
-<% System.out.println("username: "+ub.getUsername());%> 
+<% UtenteBean ub = null; %> 
+<% ub = (UtenteBean)session.getAttribute("utenteBean"); %> 
+<% if(ub != null){System.out.println("username: "+ub.getUsername());}%> 
 
 
 <h1 id="h1_page">ACQUISTA FILM</h1>
@@ -28,7 +29,7 @@
 <div class="container">
  	<h2 id="h2_form_login">Acquista Film</h2> 
  	
- 	 <form method="post" action="Utente_acquista"  name="formReg" onsubmit="return validateFormReg()" id="myform" >
+ 	 <form method="post" action="<%=response.encodeURL("Acquisto_film")%>"  name="formReg" onsubmit="return validateFormReg()" id="myform" >
   	
     	<div class="form-group">
       		<label for="email">Nome intestatario:</label>
@@ -56,7 +57,9 @@
     	</div>
     	
     	<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
-    	<input class="input_hidden" type="hidden" name="username" value="<%=ub.getUsername()%>">
+    	<%if(ub != null) { %>
+    		<input class="input_hidden" type="hidden" name="username" value="<%=ub.getUsername()%>">
+    	<%}%>
     	
     	<button type="submit" class="btn btn-primary" id="button_login">Acquista</button>
  	 </form>
