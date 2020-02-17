@@ -28,11 +28,20 @@ public class Acquisto_film extends HttpServlet {
 		String idfilm = request.getParameter("idfilm");	
 		System.out.println("if:" + idfilm);
 		
-		Integer id_f = null; 
-		if (idfilm != null) id_f = Integer.parseInt(idfilm);
+		int res = 0;
 		
-		AcquistoDAO ad = new AcquistoDAO();
-		int res = ad.addItem(username, id_f);
+		if (username == null) {
+			System.out.println("usr:"+ username);
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+			requestDispatcher.forward(request, response);
+		}
+		
+		else{
+			Integer id_f = null;
+			if (idfilm != null) id_f = Integer.parseInt(idfilm);
+			AcquistoDAO ad = new AcquistoDAO();
+			res = ad.addItem(username, id_f);
+		}
 		
 		if(res == 1) {
 			System.out.println("tutto ok inserimento");

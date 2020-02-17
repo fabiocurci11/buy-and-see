@@ -7,37 +7,137 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 
+<!--<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
+<!--<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<LINK rel="stylesheet" href="index.css" type="text/css">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="index_mod.css" type="text/css">
 
 </head>
 <body>
 
+<%
+	Boolean log=false;
+	log = (Boolean)session.getAttribute("login");
+	System.out.println("log attribute:" + log);
+%>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a href="#" class="navbar-brand font-weight-bold">Home</a>
+          <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+      
+      
+          <div id="navbarContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+              <!-- Level one dropdown -->
+              <li class="nav-item dropdown">
+                <a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Sfoglia Catalogo</a>
+                <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+                  <li><a href="#" class="dropdown-item">Per Anno</a></li>
+                  <li><a href="#" class="dropdown-item">Per tutti i Film</a></li>
+                  <li><a href="#" class="dropdown-item">Per Sezione novità</a></li>
+      
+                  <li class="dropdown-divider"></li>
+                  <!-- Level two dropdown-->
+                  <li class="dropdown-submenu">
+                    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Per Genere</a>
+                    <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+
+                      <li><a tabindex="-1" href="#" class="dropdown-item">Horror</a></li>
+                      <li><a tabindex="-1" href="#" class="dropdown-item">Comico</a></li>
+                      <li><a href="#" class="dropdown-item">Thriller</a></li>
+                      <li><a href="#" class="dropdown-item">level 2</a></li>
+                    </ul>
+                  </li>
+                  <!-- End Level two -->
+                </ul>
+              </li>
+              <!-- End Level one -->
+
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+            </ul>
+          </ul>
+      
+
+          </div>
+        </div>
+      </nav>
 
 
 
- 
-<%@include file="indexTEMPLATE2.jsp" %> 
-
-	<h1 id="h1_page">FILM ACQUISTATI</h1>
-	<div id="dislay_all_film">
+	
+	<div class="container-fluid p-3 my-3 text-white">
+		<h1 id="h1_page">HOME</h1>
+		<div id="dislay_all_film">
+			
+	  		 
+		</div>
 		
-  		 
-	</div>
-	
-	
- </div>
-  
- 
-  
-</div> <!-- chiusura div TEMPLATE -->
+		
+	 </div>
+	  
+	 
+	  
+	</div> <!-- chiusura div TEMPLATE -->
+
+
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 </body> 
 </html>
 
-
 <script>
+/*
+$(document).ready(function(){
+	document.getElementById("collapseExample").setAttribute("hidden", true);
+	  $("#sh").click(function(){
+		  document.getElementById("collapseExample").setAttribute("hidden", true);
+		  $("collapseExample").show();
+		  
+	  });
+	});
+*/
+
+$('.dropdown-submenu > a').on("click", function(e) {
+    var submenu = $(this);
+    $('.dropdown-submenu .dropdown-menu').removeClass('show');
+    submenu.next('.dropdown-menu').addClass('show');
+    e.stopPropagation();
+});
+
+$('.dropdown').on("hidden.bs.dropdown", function() {
+    // hide any open menus when parent closes
+    $('.dropdown-menu.show').removeClass('show');
+});
+
+
+
+//codice dinamico
+
+
 
 $(document).ready(function(){
     //alert("ciao");
@@ -111,6 +211,12 @@ function myFunc(jsonData){
 			var form = document.createElement("form");
 			form.setAttribute('method', 'post');
 			form.setAttribute('action', 'info_film.jsp');
+			
+			var input_idfilm = document.createElement("input");
+			input_idfilm.setAttribute('class', 'input_hidden');
+			input_idfilm.setAttribute('type', 'hidden');
+			input_idfilm.setAttribute('name', 'idfilm');
+			input_idfilm.setAttribute('value', ''+data[j].idfilm);
 			
 			var input_titolo = document.createElement("input");
 			input_titolo.setAttribute('class', 'input_hidden');
@@ -191,7 +297,9 @@ function myFunc(jsonData){
 			p_genere.after(p_durata);
 			p_durata.after(p_prezzo);
 			p_prezzo.after(form);
-			form.appendChild(input_titolo)
+			
+			form.appendChild(input_idfilm);
+			input_idfilm.after(input_titolo);
 			input_titolo.after(input_immagine);
 			input_immagine.after(input_annoUscita);
 			input_annoUscita.after(input_durata);
@@ -221,6 +329,3 @@ function myFunc(jsonData){
 }
 
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

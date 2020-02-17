@@ -95,13 +95,14 @@ public class UtenteDAO {
 			}
 			
 			//se è un nuovo utente, effettua registrazione
-			ps= conn.prepareStatement("INSERT into buysee.utente (username, password, nome, cognome, email ) VALUES(?,?,?,?,?)");
+			ps= conn.prepareStatement("INSERT into buysee.utente (username, password, nome, cognome, email, tipo) VALUES(?,?,?,?,?,?)");
 			ps.setString(1, username);
 			ps.setString(2, password);
 			ps.setString(3, nome);
 			ps.setString(4, cognome);
 			ps.setString(5, email);
-		
+			ps.setString(6, "s");	//setto il tipo utente a spettatore
+			
 			System.out.println(ps.toString());
 			
 			ps.executeUpdate();

@@ -9,8 +9,11 @@ public class UtenteBean {
 	private String nome;
 	private String cognome;
 	private String email;
+	private String tipo;
 	
 	
+	
+
 	public UtenteBean() {
 		
 	}
@@ -68,8 +71,6 @@ public class UtenteBean {
 	}
 
 
-
-
 	public String getEmail() {
 		return email;
 	}
@@ -77,6 +78,14 @@ public class UtenteBean {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }

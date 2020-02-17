@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%@include  file="indexTEMPLATE.jsp" %> 		
+<%@include  file="indexTEMPLATE2.jsp" %> 		
 
  <LINK rel="stylesheet" href="info_film.css" type="text/css">
  

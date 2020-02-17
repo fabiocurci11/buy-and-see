@@ -6,99 +6,115 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<script src="scriptJQ/jquery.js"></script>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<!-- 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<LINK rel="stylesheet" href="index.css" type="text/css">
+<!-- Bootstrap CSS 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css" type="text/css">
+ -->
 
 </head>
 <body>
 
-<%
-	Boolean log=false;
-	log = (Boolean)session.getAttribute("login");
-	System.out.println("log attribute:" + log);
-%>
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 
-	<div class="collapse navbar-collapse" id="navbarSupportedContent" >
-    	<ul class="navbar-nav mr-auto">
-      		<li class="nav-item">
-        		<a class="nav-link" href="#">Home</a>
-      		</li>
-      		
-      		<li class="nav-item dropdown" id="sh2">
-        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sfoglia Catalogo	</a>
-	        	<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink" id="sh3">
-	          		<a class="dropdown-item text-white" href="#">Per Anno</a>
-	          		<a class="dropdown-item text-white" href="#">Per Tutti i Film</a>
-	          		<a class="dropdown-item text-white" href="#">Per Sezione Novità</a>
-	          		
-	          		<a class="dropdown-item text-white btn" >Per Genere</a>
-	          	
-	          		<div id="collapseExample" >
-  						<a class="dropdown-item text-white" href="#">Horro</a>
-	          			<a class="dropdown-item text-white" href="#">Comico</a>
-	          		</div>
-	          		
+<%@include  file="indexTEMPLATE2.jsp" %> 
+
+<!-- 
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container"  id="container_mod_nav">
+          <a href="" class="navbar-brand font-weight-bold">Home</a>
+          <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+      
+      
+          <div id="navbarContent" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+              <!-- Level one dropdown 
+              <li class="nav-item dropdown">
+                <a id="dropdownMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Sfoglia Catalogo</a>
+                <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
+                  <li><a href="#" class="dropdown-item">Per Anno</a></li>
+                  <li><a href="#" class="dropdown-item">Per tutti i Film</a></li>
+                  <li><a href="#" class="dropdown-item">Per Sezione novità</a></li>
+      
+                  <li class="dropdown-divider"></li>
+                  <!-- Level two dropdown
+                  <li class="dropdown-submenu">
+                    <a id="dropdownMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Per Genere</a>
+                    <ul aria-labelledby="dropdownMenu2" class="dropdown-menu border-0 shadow">
+
+                      <li><a tabindex="-1" href="#" class="dropdown-item">Horror</a></li>
+                      <li><a tabindex="-1" href="#" class="dropdown-item">Comico</a></li>
+                      <li><a href="#" class="dropdown-item">Thriller</a></li>
+                      <li><a href="#" class="dropdown-item">level 2</a></li>
+                    </ul>
+                  </li>
+                  <!-- End Level two 
+                </ul>
+              </li>
+              <!-- End Level one 
+
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+            <ul class="navbar-nav" id="nav_login">
+              <li class="nav-item">
+                <a class="nav-link" href="login.jsp">Login</a>
+              </li>
+            </ul>
+          </ul>
+      
+
+          </div>
+        </div>
+      </nav>
+
+
+
 	
-				</div>
-     		 </li>
-     		
-    	</ul>
-    	
-    </div>
-    	
-    	<form class="form-inline my-2 my-lg-0">
-      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    	</form>
-    	
-    	<%if((log == null) || log.equals(false)) {%>
-    	<%}else{%>
-    		<ul class="navbar-nav">
-      			<li class="nav-item">
-      				<a class="nav-link" href="profilo.jsp">Profilo</a>
-      			</li>
-      		</ul>  
-    	<%}%>
-    	
-    	<ul class="navbar-nav">
-      		<li class="nav-item">
-      			<%if((log == null) || log.equals(false)) {System.out.println("resta login");%>
-        			<a class="nav-link" href="login.jsp">Login</a>
-        		<%}else{System.out.println("iventa logout");%>					<!-- se utente fa login -->
-   				 	<a class="nav-link" href="Utente_Logout">Logout</a>
-   				 <%} %>
-      		</li>
-      	</ul> 
-  	
-</nav>   
-
-
-<div class="container-fluid p-3 my-3 text-white">
-	<h1 id="h1_page">HOME</h1>
-	<div id="dislay_all_film">
+	<div class="container-fluid p-3 my-3 text-white">
+	 -->
+		<h1 id="h1_page">HOME</h1>
+		<div id="dislay_all_film">
+			
+	  		 
+		</div>
 		
-  		 
-	</div>
-	
-	
- </div>
-  
- 
-  
-</div> <!-- chiusura div TEMPLATE -->
+		
+	 </div>
+	  
+	 
+	  
+	</div> <!-- chiusura div TEMPLATE -->
+
 
 
 </body> 
 </html>
 
-
 <script>
+/*
+$('.dropdown-submenu > a').on("click", function(e) {
+    var submenu = $(this);
+    $('.dropdown-submenu .dropdown-menu').removeClass('show');
+    submenu.next('.dropdown-menu').addClass('show');
+    e.stopPropagation();
+});
+
+$('.dropdown').on("hidden.bs.dropdown", function() {
+    // hide any open menus when parent closes
+    $('.dropdown-menu.show').removeClass('show');
+});
+
+*/
+
+//codice dinamico
+
+
 
 $(document).ready(function(){
     //alert("ciao");
@@ -138,6 +154,7 @@ function myFunc(jsonData){
 			
 			var div_container = document.createElement("div"); //creo div_img con class=img
 			div_container.setAttribute('class', 'container');
+			div_container.setAttribute('style', 'width:65%');
 			
 			var h2 = document.createElement("h2"); //creo elemento p
 			
@@ -291,5 +308,7 @@ function myFunc(jsonData){
 
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

@@ -12,13 +12,13 @@
 </head>
 <body>
 
-<%@include  file="indexTEMPLATE.jsp" %> 		
+<%@include  file="indexTEMPLATE2.jsp" %> 		
 
 
 <h1 id="h1_page">PROFILO</h1>
 <LINK rel="stylesheet" href="login.css" type="text/css">	
 <LINK rel="stylesheet" href="profilo.css" type="text/css">
-<div class="container">
+<div class="container" id="container_mod_profilo">
 
 	<div id="div_profilo">
 		<div class="utente_info">

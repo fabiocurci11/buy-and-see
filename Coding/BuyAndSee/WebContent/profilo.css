@@ -1,7 +1,8 @@
 
-.container{
+#container_mod_profilo{
 	height: 85%;
 	width: 77%!important;
+	background-color:#6e7174;
 }
 
 #div_profilo{

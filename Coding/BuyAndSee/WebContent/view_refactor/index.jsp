@@ -6,20 +6,81 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-
+<script src="scriptJQ/jquery.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <LINK rel="stylesheet" href="index.css" type="text/css">
 
 </head>
 <body>
 
+<%
+	Boolean log=false;
+	log = (Boolean)session.getAttribute("login");
+	System.out.println("log attribute:" + log);
+%>
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    	<ul class="navbar-nav mr-auto">
+      		<li class="nav-item">
+        		<a class="nav-link" href="#">Home</a>
+      		</li>
+      		
+      		<li class="nav-item dropdown" id="sh2">
+        		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sfoglia Catalogo	</a>
+	        	<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink" id="sh3">
+	          		<a class="dropdown-item text-white" href="#">Per Anno</a>
+	          		<a class="dropdown-item text-white" href="#">Per Tutti i Film</a>
+	          		<a class="dropdown-item text-white" href="#">Per Sezione Novità</a>
+	          		
+	          		<a class="dropdown-item text-white btn" >Per Genere</a>
+	          	
+	          		<div id="collapseExample" >
+  						<a class="dropdown-item text-white" href="#">Horro</a>
+	          			<a class="dropdown-item text-white" href="#">Comico</a>
+	          		</div>
+	          		
+	
+				</div>
+     		 </li>
+     		
+    	</ul>
+    	
+    </div>
+    	
+    	<form class="form-inline my-2 my-lg-0">
+      		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    	</form>
+    	
+    	<%if((log == null) || log.equals(false)) {%>
+    	<%}else{%>
+    		<ul class="navbar-nav">
+      			<li class="nav-item">
+      				<a class="nav-link" href="profilo.jsp">Profilo</a>
+      			</li>
+      		</ul>  
+    	<%}%>
+    	
+    	<ul class="navbar-nav">
+      		<li class="nav-item">
+      			<%if((log == null) || log.equals(false)) {System.out.println("resta login");%>
+        			<a class="nav-link" href="login.jsp">Login</a>
+        		<%}else{System.out.println("iventa logout");%>					<!-- se utente fa login -->
+   				 	<a class="nav-link" href="Utente_Logout">Logout</a>
+   				 <%} %>
+      		</li>
+      	</ul> 
+  	
+</nav>   
 
 
-
- 
-<%@include file="indexTEMPLATE2.jsp" %> 
-
-	<h1 id="h1_page">FILM ACQUISTATI</h1>
+<div class="container-fluid p-3 my-3 text-white">
+	<h1 id="h1_page">HOME</h1>
 	<div id="dislay_all_film">
 		
   		 
@@ -112,6 +173,12 @@ function myFunc(jsonData){
 			form.setAttribute('method', 'post');
 			form.setAttribute('action', 'info_film.jsp');
 			
+			var input_idfilm = document.createElement("input");
+			input_idfilm.setAttribute('class', 'input_hidden');
+			input_idfilm.setAttribute('type', 'hidden');
+			input_idfilm.setAttribute('name', 'idfilm');
+			input_idfilm.setAttribute('value', ''+data[j].idfilm);
+			
 			var input_titolo = document.createElement("input");
 			input_titolo.setAttribute('class', 'input_hidden');
 			input_titolo.setAttribute('type', 'hidden');
@@ -191,7 +258,9 @@ function myFunc(jsonData){
 			p_genere.after(p_durata);
 			p_durata.after(p_prezzo);
 			p_prezzo.after(form);
-			form.appendChild(input_titolo)
+			
+			form.appendChild(input_idfilm);
+			input_idfilm.after(input_titolo);
 			input_titolo.after(input_immagine);
 			input_immagine.after(input_annoUscita);
 			input_annoUscita.after(input_durata);

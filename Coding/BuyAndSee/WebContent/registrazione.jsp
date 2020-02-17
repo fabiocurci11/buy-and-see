@@ -9,7 +9,7 @@
 
 </head> 
 <body>
-<%@include  file="indexTEMPLATE.jsp" %> 
+<%@include  file="indexTEMPLATE2.jsp" %> 
 <LINK rel="stylesheet" href="login.css" type="text/css">
  
  
@@ -23,7 +23,7 @@
 			<h2 style="margin-left: 39%; color: red;">Email già utilizzata!<br>Riprova </h2>
 		<% } %> 
 
-<div class="container">
+<div class="container" id="container_mod">
   <h2 id="h2_form_login">Registrazione</h2> 
   <!-- <form action="/action_page.php" id="myform"> -->
   <form method="post" action="Utente_registrazione" name="formReg" onsubmit="return validateFormReg()" id="form_reg" >

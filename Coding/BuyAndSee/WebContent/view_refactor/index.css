@@ -12,7 +12,7 @@ body{
 }
  
 .fixed-top{
-	height: 8%;
+	height: 10%;
 }
 
 .nav-item{
@@ -46,24 +46,17 @@ body{
 	height: 220px;
     width: 150px;
     /* width: 50%; */
-    margin: auto;  
+    margin: auto;
     left: 19%;
     position: relative;
 }
 
 .container{
 	width:80%;
-	
-}
-
-#container_mod_nav{
-	margin-left: 0px;
-    margin-right: 0px;
-    
 }
 
 .col-3{
-	/*background-color: #343a4073;*/  
+	/*background-color: #343a4073;*/
 }
 
 #h1_page{
@@ -90,44 +83,4 @@ body{
     border-bottom-width: 0px;
     padding-top: 0px;
  }
- 
- 
-#nav_login_logout{
- 	position: absolute;
-    left: 94%;
- }
- 
- #nav_profilo{
- 	position: absolute;
-    left: 90%;
-    
- }
- 
- .form-inline{
- 	position: absolute;
-    left: 75%;
-    
- }
 
-/* Mike code */
-
-
-.dropdown-submenu {
-    position: relative;
-  }
-  
-  .dropdown-submenu>a:after {
-    content: "\1F449";
-    float: right;
-    border: none;
-    font-family: 'FontAwesome';
-  }
-  
-  .dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: 0px;
-    margin-left: 0px;
-  }
-  
-  /* Fine Mike code */

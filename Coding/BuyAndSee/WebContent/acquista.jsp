@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<%@include  file="indexTEMPLATE.jsp" %> 		
+<%@include  file="indexTEMPLATE2.jsp" %> 		
 
  <LINK rel="stylesheet" href="info_film.css" type="text/css">
  
@@ -26,7 +26,7 @@
 
 <h1 id="h1_page">ACQUISTA FILM</h1>
 <LINK rel="stylesheet" href="login.css" type="text/css">	
-<div class="container">
+<div class="container" id="container_mod">
  	<h2 id="h2_form_login">Acquista Film</h2> 
  	
  	 <form method="post" action="<%=response.encodeURL("Acquisto_film")%>"  name="formReg" onsubmit="return validateFormReg()" id="myform" >
