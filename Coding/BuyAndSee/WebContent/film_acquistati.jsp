@@ -43,20 +43,30 @@
 $(document).ready(function(){
     //alert("ciao");
     $.get("Film_acquistati?username=<%=ub.getUsername()%>", function(data,status){
-    	alert("Data: " + data + "\nStatus: " + status);
+    	//alert("Data: " + data + "\nStatus: " + status);
     	myFunc(data);
     });
+    
+   // $("button").click(function(){
+    	//alert("ueee");
+    	//alert("ueee" + data[j].file);
+    	//$("source").attr("src",""+data[j].file);
+    	
+   // });
+
 });
 
 
 function myFunc(jsonData){
-	
 	var data=JSON.parse(jsonData);
 	//alert("post parse");
  	var size_json = Object.keys(data).length; //lunghezza array json
   	var count_column = 0;
  	var j = 0;
  	var j2 = 0;
+ 	var k = 0;
+ 	
+ 	var arr_film = [];
   	//size_json = 11; 
   	//alert("size: " + size_json);
 	for(i=0; i<size_json; i++){
@@ -71,7 +81,67 @@ function myFunc(jsonData){
 			
 			//alert("tit: " + f.getTitolo());
 			//alert("count_column: " + count_column);
-			if(count_column == size_json){return;}
+			if(count_column == size_json){
+				$("button").click(function(){
+					
+					//alert("size: "+arr_film.length);
+					var value = $(this).attr("value");
+					//alert("value: "+value);
+					
+					//modale
+					
+					var div_modal_fade = document.createElement("div");
+					div_modal_fade.setAttribute('class', 'modal fade'); 
+					div_modal_fade.setAttribute('id', 'myModal');
+					
+					var div_modal_dialog = document.createElement("div");
+					div_modal_dialog.setAttribute('class', 'modal-dialog modal-dialog-centered');
+					
+					var div_modal_content = document.createElement("div");
+					div_modal_content.setAttribute('class', 'modal-content');
+					
+					var div_modal_body = document.createElement("div");
+					div_modal_body.setAttribute('class', 'modal-body'); 
+					
+					
+					
+					var video_film = document.createElement("video");
+					video_film.setAttribute('width', '400');
+					video_film.setAttribute('controls', '');
+					video_film.setAttribute('id', 'idvideo');
+
+					
+					var source_film = document.createElement("source");
+					//source_film.setAttribute('src', '' + data[j].file);
+					source_film.setAttribute('id', 'ris');
+					source_film.setAttribute('src', ''+ arr_film[value]);
+					source_film.setAttribute('type', 'video/mp4');
+					
+					//fine modale
+					//alert("creo modale");
+					
+					button.after(div_modal_fade);
+					div_modal_fade.appendChild(div_modal_dialog);
+					div_modal_dialog.appendChild(div_modal_content);
+					div_modal_content.appendChild(div_modal_body);
+					
+					div_modal_body.appendChild(video_film);
+					video_film.appendChild(source_film);
+							
+					//alert("fine creazione");
+					$("#myModal").on('hide.bs.modal', function(){
+					    var video_p = document.getElementById("idvideo");
+					    video_p.pause();
+					  });
+					
+				});
+				
+				 
+
+			
+				return;
+			}
+			
 			count_column++;
 			var col_grid = document.createElement("div"); 
 			col_grid.setAttribute('class', 'col-3');
@@ -173,49 +243,20 @@ function myFunc(jsonData){
 			//a.setAttribute('href', 'info_film.jsp?film_bean='+data[j].titolo);
 			button.setAttribute('class', 'btn btn-primary');
 			button.setAttribute('type', 'submit');
-			button.setAttribute('style', 'margin-left: 45px;');
+			button.setAttribute('style', 'width: 100%;');
 			button.setAttribute('data-toggle', 'modal');
 			button.setAttribute('data-target', '#myModal');
+			button.setAttribute('value', ''+j);
+			
 			
 			 //<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 			
 			var img_play = document.createElement("img");
 			img_play.setAttribute('src', 'img/play.png');
-			img_play.setAttribute('width', '30%');
+			img_play.setAttribute('width', '15%');
 			
 			
-			 
-			var div_modal_fade = document.createElement("div");
-			div_modal_fade.setAttribute('class', 'modal fade'); 
-			div_modal_fade.setAttribute('id', 'myModal');
-			
-			var div_modal_dialog = document.createElement("div");
-			div_modal_dialog.setAttribute('class', 'modal-dialog modal-dialog-centered');
-			
-			var div_modal_content = document.createElement("div");
-			div_modal_content.setAttribute('class', 'modal-content');
-			
-			var div_modal_body = document.createElement("div");
-			div_modal_body.setAttribute('class', 'modal-body'); 
-			
-			
-			
-			var video_film = document.createElement("video");
-			video_film.setAttribute('width', '400');
-			video_film.setAttribute('controls', '');
-			
-			var source_film = document.createElement("source");
-			source_film.setAttribute('src', '' + data[j].file);
-			source_film.setAttribute('type', 'video/mp4');
-			
-			/*
-			<video width="400" controls>
-			  <source src="film/harrypotter.mp4" type="video/mp4">
-			</video>
-			*/
-			
-			
-					
+		
 			div_all_film.appendChild(row_grid);
 			row_grid.appendChild(col_grid);
 			col_grid.appendChild(div_container) ; 
@@ -241,18 +282,7 @@ function myFunc(jsonData){
 			input_trailer.after(input_prezzo);
 			input_prezzo.after(button);
 			form.after(button);
-			button.appendChild(img_play);
-			button.after(div_modal_fade);
-			div_modal_fade.appendChild(div_modal_dialog);
-			div_modal_dialog.appendChild(div_modal_content);
-			div_modal_content.appendChild(div_modal_body);
-			
-			div_modal_body.appendChild(video_film);
-			video_film.appendChild(source_film);
-			
-			
-			
-			
+			button.appendChild(img_play);			
 			
 			 
 			//h2.innerHTML = "Card Image";
@@ -267,10 +297,14 @@ function myFunc(jsonData){
 			p_prezzo.innerHTML = "Prezzo: " + data[j].prezzo + "<br>";
 			//button.innerHTML = "Vai al film";
 				
-		
+			
+			arr_film[j] = data[j].file;
+			//alert("film111: "+ arr_film[j]);
+				
 		}
-		//if(count_column == size_json){break;}
+		
 	}
+	
 }
 
 </script>
