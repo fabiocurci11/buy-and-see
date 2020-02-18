@@ -119,7 +119,7 @@ $('.dropdown').on("hidden.bs.dropdown", function() {
 $(document).ready(function(){
     //alert("ciao");
     $.get("Film_doAll", function(data,status){
-    	//alert("Data: " + data + "\nStatus: " + status);
+    	alert("Data: " + data + "\nStatus: " + status);
     	myFunc(data);
     });
 });
@@ -154,7 +154,7 @@ function myFunc(jsonData){
 			
 			var div_container = document.createElement("div"); //creo div_img con class=img
 			div_container.setAttribute('class', 'container');
-			div_container.setAttribute('style', 'width:65%');
+			
 			
 			var h2 = document.createElement("h2"); //creo elemento p
 			
@@ -250,6 +250,12 @@ function myFunc(jsonData){
 			input_prezzo.setAttribute('name', 'prezzo');
 			input_prezzo.setAttribute('value', ''+data[j].prezzo);
 			
+			var input_file = document.createElement("input");
+			input_file.setAttribute('class', 'input_hidden');
+			input_file.setAttribute('type', 'hidden');
+			input_file.setAttribute('name', 'file');
+			input_file.setAttribute('value', ''+data[j].file);
+			
 			
 			var button = document.createElement("button");
 			//a.setAttribute('href', 'info_film.jsp');
@@ -281,19 +287,20 @@ function myFunc(jsonData){
 			input_titolo.after(input_immagine);
 			input_immagine.after(input_annoUscita);
 			input_annoUscita.after(input_durata);
-			input_durata.after(input_genere);
+			input_durata.after(input_genere); 
 			input_genere.after(input_lingua);
 			input_lingua.after(input_descrizione);
 			input_descrizione.after(input_trailer);
 			input_trailer.after(input_prezzo);
-			input_prezzo.after(button);
+			input_prezzo.after(input_file);
+			input_file.after(button);
 			 
 			//h2.innerHTML = "Card Image";
 			//p.innerHTML = "Image at the top";
 			
 			var temp_img = "<img class='card-img-top' src='" + data[j].immagine + "' alt='Card image'>";
 			div_img.innerHTML = temp_img;
-			h4.innerHTML = "John Doe";
+			h4.innerHTML = ""+data[j].titolo;
 			p_anno.innerHTML = "Anno: " + data[j].anno + "<br>";
 			p_genere.innerHTML = "Genere: " + data[j].genere + "<br>";
 			p_durata.innerHTML = "Durata: " + data[j].anno + "<br>";

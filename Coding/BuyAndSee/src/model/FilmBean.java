@@ -12,8 +12,9 @@ public class FilmBean {
 	private String descrizione;
 	private boolean trailer;
 	private float prezzo;
+	private String file;
 	
-	
+
 	public FilmBean() {
 		
 	}
@@ -125,5 +126,12 @@ public class FilmBean {
 	
 	
 
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
 
 }

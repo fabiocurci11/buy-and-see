@@ -13,25 +13,33 @@
 <%@include  file="indexTEMPLATE2.jsp" %> 
 <LINK rel="stylesheet" href="login.css" type="text/css">	
  
-<h1 id="h1_page">LOGIN</h1>
+
 
 <% Boolean reg_ok = (Boolean) request.getAttribute("reg_ok"); System.out.println("@@@ reg_ok = "+reg_ok);%> 
 <% UtenteBean ub = (UtenteBean) request.getAttribute("utenteBean");%> 
-
 <% Boolean bad = (Boolean) request.getAttribute("denied");%> 
+<% Boolean log_for_buy = (Boolean) request.getAttribute("log_for_buy");  System.out.println("LOG_FOR_BUY = "+log_for_buy);%> 
 <% String url=response.encodeUrl(session.getId());%>
 
+<h1 id="h1_page">LOGIN</h1>
 
+<!-- registrazione effettuata con successo -->
 <% if (reg_ok != null && reg_ok == true) { %>
-			<h2 style="margin-left: 39%; color: #2c8943;">Registrazione avvenuta!<br><%= ub.getNome()%> effettua il login </h2>
-		<% }%> 
+			<!-- <h2 style="margin-left: 39%; color: #2c8943;">Registrazione avvenuta!<br><%= ub.getNome()%> effettua il login </h2> -->
+			<h3 style="color: green;"class="message_succ_fail">Registrazione effettuata con successo!<br>Effettua il login</h3>
+<% }%> 
 
 
 <!-- login fallito -->
 <% if (bad != null) { %>
-			<h2 style="margin-left: 39%;">ACCESSO NEGATO <br> Login e password errati</h2>
-			
-		<% }%> 
+			<!-- <h2 style="margin-left: 39%;">ACCESSO NEGATO <br> Login e password errati</h2>  -->
+			<h3 style="color: red;"class="message_succ_fail">ACCESSO NEGATO <br> Login e password errati</h3>	
+<% }%> 
+
+<% if (log_for_buy != null && log_for_buy == false ) { %>
+			<!-- <h2 style="margin-left: 39%;">ACCESSO NEGATO <br> Login e password errati</h2>  -->
+			<h3 style="color: red;"class="message_succ_fail">Effettua login per acquistare</h3>	
+<% }%> 
 
 <div class="container" id="container_mod">
  	<h2 id="h2_form_login">Login</h2> 

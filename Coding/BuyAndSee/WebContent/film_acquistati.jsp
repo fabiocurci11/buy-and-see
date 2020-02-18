@@ -18,7 +18,8 @@
 
  
 <%@include file="indexTEMPLATE2.jsp" %> 
-
+<% UtenteBean ub = (UtenteBean)session.getAttribute("utenteBean");%> 
+<%if(ub != null)  System.out.println("utente_bean: "+ub.getUsername());%>
 	<h1 id="h1_page">FILM ACQUISTATI</h1>
 	<div id="dislay_all_film">
 		
@@ -41,8 +42,8 @@
 
 $(document).ready(function(){
     //alert("ciao");
-    $.get("Film_doAll", function(data,status){
-    	//alert("Data: " + data + "\nStatus: " + status);
+    $.get("Film_acquistati?username=<%=ub.getUsername()%>", function(data,status){
+    	alert("Data: " + data + "\nStatus: " + status);
     	myFunc(data);
     });
 });
@@ -105,9 +106,9 @@ function myFunc(jsonData){
 			p_prezzo.setAttribute('class', 'p_info_film');
 			//p_card_text.setAttribute('class', 'card-text-black');
 			
-			<%! FilmBean f = new FilmBean("titobo"); //System.out.println("###f: "+f.getTitolo());%>
+			<%! FilmBean f = new FilmBean("titobo"); //System.out.println("###f: "+f.getTitolo());%> 
 			
-			//<form method="post" action="Utente_registrazione" name="formReg" id="myform">
+			//<form method="post" action="Utente_registrazione" name="formReg" id="myform"> 
 			var form = document.createElement("form");
 			form.setAttribute('method', 'post');
 			form.setAttribute('action', 'info_film.jsp');
@@ -173,7 +174,45 @@ function myFunc(jsonData){
 			button.setAttribute('class', 'btn btn-primary');
 			button.setAttribute('type', 'submit');
 			button.setAttribute('style', 'margin-left: 45px;');
+			button.setAttribute('data-toggle', 'modal');
+			button.setAttribute('data-target', '#myModal');
 			
+			 //<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+			
+			var img_play = document.createElement("img");
+			img_play.setAttribute('src', 'img/play.png');
+			img_play.setAttribute('width', '30%');
+			
+			
+			 
+			var div_modal_fade = document.createElement("div");
+			div_modal_fade.setAttribute('class', 'modal fade'); 
+			div_modal_fade.setAttribute('id', 'myModal');
+			
+			var div_modal_dialog = document.createElement("div");
+			div_modal_dialog.setAttribute('class', 'modal-dialog modal-dialog-centered');
+			
+			var div_modal_content = document.createElement("div");
+			div_modal_content.setAttribute('class', 'modal-content');
+			
+			var div_modal_body = document.createElement("div");
+			div_modal_body.setAttribute('class', 'modal-body'); 
+			
+			
+			
+			var video_film = document.createElement("video");
+			video_film.setAttribute('width', '400');
+			video_film.setAttribute('controls', '');
+			
+			var source_film = document.createElement("source");
+			source_film.setAttribute('src', '' + data[j].file);
+			source_film.setAttribute('type', 'video/mp4');
+			
+			/*
+			<video width="400" controls>
+			  <source src="film/harrypotter.mp4" type="video/mp4">
+			</video>
+			*/
 			
 			
 					
@@ -186,7 +225,7 @@ function myFunc(jsonData){
 			div_card.appendChild(div_img);
 			div_img.after(div_card_body);
 			div_card_body.appendChild(h4);
-			h4.after(p_anno);
+			h4.after(p_anno); 
 			p_anno.after(p_genere);
 			p_genere.after(p_durata);
 			p_durata.after(p_prezzo);
@@ -201,18 +240,32 @@ function myFunc(jsonData){
 			input_descrizione.after(input_trailer);
 			input_trailer.after(input_prezzo);
 			input_prezzo.after(button);
+			form.after(button);
+			button.appendChild(img_play);
+			button.after(div_modal_fade);
+			div_modal_fade.appendChild(div_modal_dialog);
+			div_modal_dialog.appendChild(div_modal_content);
+			div_modal_content.appendChild(div_modal_body);
+			
+			div_modal_body.appendChild(video_film);
+			video_film.appendChild(source_film);
+			
+			
+			
+			
+			
 			 
 			//h2.innerHTML = "Card Image";
 			//p.innerHTML = "Image at the top";
 			
 			var temp_img = "<img class='card-img-top' src='" + data[j].immagine + "' alt='Card image'>";
 			div_img.innerHTML = temp_img;
-			h4.innerHTML = "John Doe";
+			h4.innerHTML = data[j].titolo;
 			p_anno.innerHTML = "Anno: " + data[j].anno + "<br>";
 			p_genere.innerHTML = "Genere: " + data[j].genere + "<br>";
 			p_durata.innerHTML = "Durata: " + data[j].anno + "<br>";
 			p_prezzo.innerHTML = "Prezzo: " + data[j].prezzo + "<br>";
-			button.innerHTML = "Vai al film";
+			//button.innerHTML = "Vai al film";
 				
 		
 		}

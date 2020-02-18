@@ -40,7 +40,8 @@ public class Film_doAll extends HttpServlet {
 			out.append(" \"lingua\":\""+ temp.getLingua() +"\",");
 			out.append(" \"descrizione\":\""+ temp.getDescrizione() +"\",");
 			out.append(" \"trailer\":\""+ temp.isTrailer()+"\",");
-			out.append(" \"prezzo\":\""+ temp.getPrezzo() +"\"");
+			out.append(" \"prezzo\":\""+ temp.getPrezzo() +"\",");
+			out.append(" \"file\":\""+ temp.getFile() +"\"");
 			
 			
 			if(i != size-1)

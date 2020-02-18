@@ -39,6 +39,7 @@ public class FilmDAO {
 				f.setDescrizione(res.getString("descrizione"));
 				f.setTrailer(res.getBoolean("trailer"));
 				f.setPrezzo(res.getFloat("prezzo"));
+				f.setFile(res.getString("file"));
 	
 				return f;
 			}
@@ -88,13 +89,14 @@ public class FilmDAO {
 				f.setId(res.getInt("idfilm"));
 				f.setTitolo(res.getString("titolo")); 
 				f.setImmagine(res.getString("immagine"));
-				f.setAnno_uscita(res.getInt("prezzo"));
+				f.setAnno_uscita(res.getInt("annoUscita"));
 				f.setDurata(res.getDouble("durata"));
 				f.setGenere(res.getString("genere"));
 				f.setLingua(res.getString("lingua"));
 				f.setDescrizione(res.getString("descrizione"));
 				f.setTrailer(res.getBoolean("trailer"));
 				f.setPrezzo(res.getFloat("prezzo"));
+				f.setFile(res.getString("file"));
 	
 	
 				arr.add(f);

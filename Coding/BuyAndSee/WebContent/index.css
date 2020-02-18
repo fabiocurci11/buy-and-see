@@ -12,7 +12,7 @@ body{
 }
  
 .fixed-top{
-	height: 8%;
+	height: 9%;
 }
 
 .nav-item{
@@ -29,7 +29,7 @@ body{
 .container-fluid{
 	background-color: #9E9E9E;
 	position: absolute;
-    top: 60px;
+    top: 53px;
     height: fit-content;
     margin-bottom: 0px!important;
  }
@@ -99,13 +99,13 @@ body{
  
  #nav_profilo{
  	position: absolute;
-    left: 90%;
+    left: 89%;
     
  }
  
  .form-inline{
  	position: absolute;
-    left: 75%;
+    left: 69%;
     
  }
 

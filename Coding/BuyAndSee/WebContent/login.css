@@ -45,3 +45,10 @@
     position: relative;
     margin-bottom: 20px;
 }
+
+.message_succ_fail{
+	position: relative;
+    left: 31%;
+    text-align: center;
+    width: 40%;
+}

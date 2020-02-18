@@ -26,6 +26,7 @@
 <% String descrizione = request.getParameter("descrizione"); System.out.println("@@@@descrizione: "+descrizione);%> 
 <% String trailer = request.getParameter("trailer"); System.out.println("@@@@trailer: "+trailer);%>
 <% String prezzo = request.getParameter("prezzo"); System.out.println("@@@@prezzo: "+prezzo);%>  
+<% String file = request.getParameter("file"); System.out.println("@@@@file: "+file);%>  
 
 <h1 id="h1_page">INFO FILM</h1>
 

@@ -32,6 +32,8 @@ public class Acquisto_film extends HttpServlet {
 		
 		if (username == null) {
 			System.out.println("usr:"+ username);
+			Boolean log_for_buy = false;
+			request.setAttribute("log_for_buy",log_for_buy);
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
 			requestDispatcher.forward(request, response);
 		}
