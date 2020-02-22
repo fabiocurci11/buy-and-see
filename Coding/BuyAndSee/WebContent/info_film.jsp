@@ -28,6 +28,10 @@
 <% String prezzo = request.getParameter("prezzo"); System.out.println("@@@@prezzo: "+prezzo);%>  
 <% String file = request.getParameter("file"); System.out.println("@@@@file: "+file);%>  
 
+<% UtenteBean ub = null; %> 
+<% ub = (UtenteBean)session.getAttribute("utenteBean"); %> 
+<% if(ub != null){System.out.println("info film @@@ usre: "+ub.getUsername());}%> 
+
 <h1 id="h1_page">INFO FILM</h1>
 
 <div id="div_info_film">
@@ -72,11 +76,19 @@
 		<input class="input_hidden" type="hidden" name="titolo" value="drammatico">
 		<button type="submit" class="btn btn-primary btn-lg">Visiona Trailer</button>
 		
+		<%if(ub != null){%> 	
 		<form method="post" action="<%=response.encodeURL("acquista.jsp")%>" id="form_acquista">
 			<!-- <input class="input_hidden" type="hidden" name="titolo" value="drammatico">  -->
 			<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
 			<button type="submit" class="btn btn-primary btn-lg" style="float: right;">Acquista</button>
 		</form>
+		<%} else{%> 
+			<form method="post" action="<%=response.encodeURL("login.jsp")%>" id="form_acquista">
+				<!-- <input class="input_hidden" type="hidden" name="titolo" value="drammatico">  -->
+				<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
+				<button type="submit" class="btn btn-primary btn-lg" style="float: right;">Login per acquistare</button>
+			</form>
+			<%}%> 
 	</div>
 	
 	

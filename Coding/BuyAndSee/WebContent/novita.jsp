@@ -17,7 +17,7 @@
 <body>
 
 <%@include  file="indexTEMPLATE2.jsp" %> 
-
+<link rel="stylesheet" href="novita.css" type="text/css">
 <%
 	String tipo_usr = "";
 	String gc = "gc";
@@ -30,12 +30,19 @@
 	if(tipo_usr.equals(gc)){ System.out.println("NELL IF DEL TIPO: " + tipo_usr);}
 	else{System.out.println("false ");}
 %> 
+ 
 
-
-	<h1 id="h1_page">HOME</h1>
+	<h1 id="h1_page">SEZIONE NOVITA'</h1>
 	
- 	<%%> 
-
+ 	<%if(tipo_usr.equals(gc)){%> 
+ 		<div id="add_film">
+			<h3>aggiungi film</h3>
+			<button class="btn btn-primary" type="submit" style="width: 50%;" value="0">
+				<a href="addFilm.jsp"><img src="img/add.png" id="img_add" width="15%"></a>
+			</button>
+		</div>
+	<%}%> 
+	
 	
 	<div id="dislay_all_film">
 				
@@ -55,29 +62,11 @@
 </html>
 
 <script>
-/*
-$('.dropdown-submenu > a').on("click", function(e) {
-    var submenu = $(this);
-    $('.dropdown-submenu .dropdown-menu').removeClass('show');
-    submenu.next('.dropdown-menu').addClass('show');
-    e.stopPropagation();
-});
-
-$('.dropdown').on("hidden.bs.dropdown", function() {
-    // hide any open menus when parent closes
-    $('.dropdown-menu.show').removeClass('show');
-});
-
-*/
-
-//codice dinamico
-
-
 
 $(document).ready(function(){
     //alert("ciao");
     $.get("Film_doAll", function(data,status){
-    	alert("Data: " + data + "\nStatus: " + status);
+    	//alert("Data: " + data + "\nStatus: " + status);
     	myFunc(data);
     });
 });

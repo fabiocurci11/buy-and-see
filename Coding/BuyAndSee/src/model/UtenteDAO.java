@@ -10,6 +10,7 @@ public class UtenteDAO {
 	
 	public synchronized UtenteBean doRetrieveByKey(String username, String password){
 		 
+		 //per login
 		 Connection conn = null;
 		 PreparedStatement ps = null;
 		 try {
@@ -31,6 +32,7 @@ public class UtenteDAO {
 				System.out.println("COGNOME: "+res.getString("cognome"));
 				ub.setNome(res.getString("nome"));
 				ub.setCognome(res.getString("cognome"));
+				ub.setTipo(res.getString("tipo"));
 				
 				return ub;
 			}

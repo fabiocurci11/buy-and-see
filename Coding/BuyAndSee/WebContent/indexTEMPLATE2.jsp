@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+<%@ page import="model.*"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -9,6 +9,7 @@
 	Boolean log=false;
 	log = (Boolean)session.getAttribute("login");
 	System.out.println("log attribute:" + log);
+	
 %>
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -27,7 +28,7 @@
                 <ul aria-labelledby="dropdownMenu1" class="dropdown-menu border-0 shadow">
                   <li><a href="#" class="dropdown-item">Per Anno</a></li>
                   <li><a href="#" class="dropdown-item">Per tutti i Film</a></li>
-                  <li><a href="#" class="dropdown-item">Per Sezione novit√†</a></li>
+                  <li><a href="novita.jsp" class="dropdown-item">Per Sezione novit‡†</a></li>
       
                   <li class="dropdown-divider"></li>
                   <!-- Level two dropdown-->
@@ -93,7 +94,10 @@ $('.dropdown').on("hidden.bs.dropdown", function() {
     // hide any open menus when parent closes
     $('.dropdown-menu.show').removeClass('show');
 });
+
+
+
 </script>
 
 	
-	<div class="container-fluid p-3 my-3 text-white">
+<div class="container-fluid p-3 my-3 text-white">

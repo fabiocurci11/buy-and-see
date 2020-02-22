@@ -1,0 +1,10 @@
+#add_film{
+	position: relative;
+    left: 31%;
+    text-align: center;
+    width: 40%;
+    background: #343a40;
+}
+#img_add{
+	width: 15%;
+}
