@@ -259,9 +259,9 @@ function myFunc(jsonData){
 			var temp_img = "<img class='card-img-top' src='" + data[j].immagine + "' alt='Card image'>";
 			div_img.innerHTML = temp_img;
 			h4.innerHTML = ""+data[j].titolo;
-			p_anno.innerHTML = "Anno: " + data[j].anno + "<br>";
+			p_anno.innerHTML = "Anno: " + data[j].Anno_uscita + "<br>";
 			p_genere.innerHTML = "Genere: " + data[j].genere + "<br>";
-			p_durata.innerHTML = "Durata: " + data[j].anno + "<br>";
+			p_durata.innerHTML = "Durata: " + data[j].durata + "<br>";
 			p_prezzo.innerHTML = "Prezzo: " + data[j].prezzo + "<br>";
 			button.innerHTML = "Vai al film";
 				

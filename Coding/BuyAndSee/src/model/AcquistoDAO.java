@@ -17,6 +17,8 @@ public class AcquistoDAO {
 			//int id_film = ab.getId();	
 			//String id_usr = ab.getUsername();
 			 
+			//ps= conn.prepareStatement("SELECT into buysee.acquisto (idutente, idfilm) VALUES(?,?)");
+			 
 			conn = DriverManagerConnectionPool.getConnection();
 			ps= conn.prepareStatement("INSERT into buysee.acquisto (idutente, idfilm) VALUES(?,?)");
 			ps.setString(1, idusr);

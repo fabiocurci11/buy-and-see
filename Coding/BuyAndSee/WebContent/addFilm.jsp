@@ -29,7 +29,7 @@
 <div class="container" id="container_mod">
  	<h2 id="h2_form_login">Aggiungi Film</h2> 
  	
- 	 <form method="post" action="<%=response.encodeURL("Acquisto_film")%>"  name="formAdd" onsubmit="return validateFormAdd()" id="myform" >
+ 	 <form method="post" action="<%=response.encodeURL("Aggiungi_film")%>"  name="formAdd" onsubmit="return validateFormAdd()" id="myform" >
   	
     	<div class="form-group">
       		<label for="email">Titolo:</label>
@@ -37,54 +37,54 @@
     	</div>
     	
     	<div class="form-group">
-    		<label for="email">Immagine:</label>
-      		<div class="custom-file" class="form-group" style="width: 87%;">
-			    <input type="file" class="custom-file-input" id="inputGroupFile01" name="immagine">
-			    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
- 			 </div>
+    		<label for="email">Immagine:</label><br>
+      		<input type="file" name="immagine">
     	</div>
     	
     	<div class="form-group">
       		<label for="email">Anno uscita:</label>
-      		<input type="text" class="form-control" id="numeroCarta" placeholder="Inserisci numero carta" name="annoUscita" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci Anno uscita" name="annoUscita" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Durata:</label>
-      		<input type="text" class="form-control" id="scadenzaCarta" placeholder="Inserisci scadenza carta" name="durata" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci Durata" name="durata" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Genere:</label>
-      		<input type="password" class="form-control" id="codiceSicurezza" placeholder="Inserisci codice di sicurezza" name="genere" style="width:70%;">
+      		<input type="password" class="form-control"  placeholder="Inserisci Genere" name="genere" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Lingua:</label>
-      		<input type="password" class="form-control" id="codiceSicurezza" placeholder="Inserisci codice di sicurezza" name="lingua" style="width:70%;">
+      		<input type="password" class="form-control"  placeholder="Inserisci codice di Lingua" name="lingua" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Descrizione:</label>
-      		<input type="password" class="form-control" id="codiceSicurezza" placeholder="Inserisci codice di sicurezza" name="descrizione" style="width:70%;">
+      		<input type="password" class="form-control" placeholder="Inserisci Descrizione" name="descrizione" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Trailer:</label>
-      		<input type="password" class="form-control" id="codiceSicurezza" placeholder="Inserisci codice di sicurezza" name="trailer" style="width:70%;">
+      		<input type="password" class="form-control"  placeholder="Inserisci Trailer" name="trailer" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Prezzo:</label>
-      		<input type="password" class="form-control" id="codiceSicurezza" placeholder="Inserisci codice di sicurezza" name="prezzo" style="width:70%;">
+      		<input type="password" class="form-control"  placeholder="Inserisci Prezzo" name="prezzo" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="email">File:</label><br>
+      		<input type="file" name="file">
+      		<!--  
       		<div class="custom-file" class="form-group" style="width: 87%;">
 			    <input type="file" class="custom-file-input" id="inputGroupFile01" name="file"><br>
 			    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
  			 </div>
+ 			 -->
  		</div>
     	
     	<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
@@ -107,17 +107,19 @@
 <script>
 
 function validateFormAdd() {
+	alert("in validation");
     var form = document.forms["formAdd"];
-    var titolo=formAcq.nome;
-    var immagine=formAcq.immagine;
-    var annoUscita=formAcq.annoUscita;
-    var durata=formAcq.durata;
-    var genere=formAcq.genere;
-    var lingua=formAcq.lingua;
-    var descrizione=formAcq.descrizione;
-    var trailer=formAcq.trailer;
-    var prezzo=formAcq.prezzo;
-    var file=formAcq.file;
+    var titolo=formAdd.nome;
+    var immagine=formAdd.immagine;
+    var annoUscita=formAdd.annoUscita;
+    var durata=formAdd.durata;
+    var genere=formAdd.genere;
+    var lingua=formAdd.lingua;
+    var descrizione=formAdd.descrizione;
+    var trailer=formAdd.trailer;
+    var prezzo=formAdd.prezzo;
+    var file=formAdd.file;
+    
 	
     if(!validateTitoloAdd(titolo))
         return false;
@@ -159,9 +161,10 @@ function validateTitoloAdd(titolo){
 }
 
 function validateImmagineAdd(immagine){
-	//alert("validiamo: "+cognome);
+	alert("img:: "+immagine.value);
+	String img_v = immagine.value;
 	var letters = /^[a-zA-Z0-9/.]{1,45}$/; //qualsiasi lettera dell'alfabeto di lunghezza minimo 3 max 20 caratteri
-	if(immagine.value.match(letters)){
+	if(img_v.match(letters)){
 		//alert("cognome ok");
 		immagine.style.border = "2px solid green";
 		return true;
