@@ -86,9 +86,9 @@ function validateFormAcq() {
         return false;
     if(!validateCognomeAcq(cognome))
         return false;
-    if(!validateScadenzaAcq(scadenza))
-        return false;
     if(!validateNumeroAcq(numero))
+        return false;
+    if(!validateScadenzaAcq(scadenza))
         return false;
 	if(!validateCodiceAcq(codice))
         return false;
@@ -149,7 +149,7 @@ function validateScadenzaAcq(scadenza){
 function validateNumeroAcq(numero){
 	//alert("validiamo: " + email);
 	//var letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-	var letters = /^[0-9]{0,16}$/;   
+	var letters = /^[0-9]{16}$/;   
 	
 	if(numero.value.match(letters)){
 		//alert("email ok");
@@ -175,6 +175,7 @@ function validateCodiceAcq(codice){
 	}
 	
 	else{
+		alert("codice scorretto");
 		//alert("La password deve essere da 5 a 15 caratteri e senza spazi");
 		codice.focus();
 		codice.style.border = "2px solid #f50000";

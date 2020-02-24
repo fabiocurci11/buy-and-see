@@ -30,10 +30,9 @@
  	<h2 id="h2_form_login">Aggiungi Film</h2> 
  	
  	 <form method="post" action="<%=response.encodeURL("Aggiungi_film")%>"  name="formAdd" onsubmit="return validateFormAdd()" id="myform" >
-  	
     	<div class="form-group">
       		<label for="email">Titolo:</label>
-      		<input type="text" class="form-control" id="nome" placeholder="Inserisci nome" name="titolo" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci nome" name="titolo" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
@@ -107,9 +106,10 @@
 <script>
 
 function validateFormAdd() {
-	alert("in validation");
-    var form = document.forms["formAdd"];
-    var titolo=formAdd.nome;
+	//alert("in validation");
+
+	var form = document.forms["formAdd"];
+    var titolo=formAdd.titolo;
     var immagine=formAdd.immagine;
     var annoUscita=formAdd.annoUscita;
     var durata=formAdd.durata;
@@ -123,13 +123,13 @@ function validateFormAdd() {
 	
     if(!validateTitoloAdd(titolo))
         return false;
-    if(!validateImmagineAdd(immagine))
-        return false;
+     //if(!validateImmagineAdd(immagine))
+       // return false;
     if(!validateAnnoUscitaAdd(annoUscita))
         return false;
     if(!validateDurataAdd(durata))
         return false;
-	if(!validateGenereAdd(genere))
+    if(!validateGenereAdd(genere))
         return false;
 	if(!validateLinguaAdd(lingua))
         return false;
@@ -140,7 +140,7 @@ function validateFormAdd() {
 	if(!validatePrezzoAdd(prezzo))
         return false;
 	if(!validateFileAdd(file))
-        return false;
+        return false; 
 }
 
 function validateTitoloAdd(titolo){
@@ -153,7 +153,7 @@ function validateTitoloAdd(titolo){
 	}
 	
 	else{
-		alert("nome sbagliato");
+		alert("titolo sbagliato");
 		titolo.focus();
 		titolo.style.border = "2px solid #f50000";
 		return false;
@@ -162,7 +162,7 @@ function validateTitoloAdd(titolo){
 
 function validateImmagineAdd(immagine){
 	alert("img:: "+immagine.value);
-	String img_v = immagine.value;
+	var img_v = immagine.value;
 	var letters = /^[a-zA-Z0-9/.]{1,45}$/; //qualsiasi lettera dell'alfabeto di lunghezza minimo 3 max 20 caratteri
 	if(img_v.match(letters)){
 		//alert("cognome ok");
@@ -199,7 +199,7 @@ function validateAnnoUscitaAdd(annoUscita){
 function validateDurataAdd(durata){
 	//alert("validiamo: " + email);
 	//var letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-	var letters = /^[0-9,.]{1,7}$/;   
+	var letters = /^[0-9,.:]{1,7}$/;   
 	
 	if(numero.value.match(letters)){
 		//alert("email ok");
@@ -251,7 +251,7 @@ function validateLinguaAdd(lingua){
 
 function validateDescrizioneAdd(descrizione){
 	//alert("validiamo: " + psw);
-	var letters = /^.{1,255}$/; //può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
+	var letters = /^.{0,255}$/; //può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
 	if(codice.value.match(letters)){
 		//alert("psw ok");
 		codice.style.borderColor = "green";
