@@ -1,0 +1,54 @@
+.container-fluid{
+	height: 90%;
+}
+
+/*
+.container{
+	margin-top: 50px;
+	width:30%!important;
+	background-color: #343a40;
+}
+*/
+
+#container_mod{
+	margin-top: 50px;
+	width:30%!important;
+	background-color: #343a40;
+}
+
+#form_reg{
+	margin: auto;
+	width: 100%;
+	margin-top: 3%;
+	margin-left: 15%;
+}
+
+#myform{
+	margin: auto;
+	width: 100%;
+	margin-top: 3%;
+	margin-left: 15%;
+}
+
+#h2_form_login{
+	    text-align: center;
+}
+
+#recupero_e_reg{
+	  text-align: center;
+	  font-size: 17px;
+}
+
+#button_login{
+	width: 23%;
+    left: 23%;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.message_succ_fail{
+	position: relative;
+    left: 31%;
+    text-align: center;
+    width: 40%;
+}

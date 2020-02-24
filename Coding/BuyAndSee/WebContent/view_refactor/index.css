@@ -1,0 +1,86 @@
+html, 
+body {
+    height: 100%;
+}
+
+body{
+	background-color: red;
+}
+
+#div_right{
+	float:right;
+}
+ 
+.fixed-top{
+	height: 10%;
+}
+
+.nav-item{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.dropdown-item:hover{
+	background-color: black;
+	color:white;
+}
+
+
+.container-fluid{
+	background-color: #9E9E9E;
+	position: absolute;
+    top: 60px;
+    height: fit-content;
+    margin-bottom: 0px!important;
+ }
+
+.row{
+	margin-left: 30px;
+    margin-right: 30px;
+    height: 100%;
+    margin-top: 70px;
+} 
+
+
+.card-img-top{
+	height: 220px;
+    width: 150px;
+    /* width: 50%; */
+    margin: auto;
+    left: 19%;
+    position: relative;
+}
+
+.container{
+	width:80%;
+}
+
+.col-3{
+	/*background-color: #343a4073;*/
+}
+
+#h1_page{
+	margin-left: 30px;
+	border-bottom: 2px solid #343a40;
+    width: fit-content;
+}
+
+#dislay_all_film{
+	background-color: #343a4073;
+}
+
+.p_info_film{
+	margin-bottom: 10px;
+}
+ 
+ .input_hidden{
+ 	width: 0px;
+    height: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-top-width: 0px;
+    padding-bottom: 0px;
+    border-bottom-width: 0px;
+    padding-top: 0px;
+ }
+
