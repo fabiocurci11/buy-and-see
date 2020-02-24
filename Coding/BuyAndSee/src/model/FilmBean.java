@@ -10,7 +10,7 @@ public class FilmBean {
 	private String genere;
 	private String lingua;
 	private String descrizione;
-	private boolean trailer;
+	private String trailer;
 	private float prezzo;
 	private String file;
 	
@@ -105,12 +105,12 @@ public class FilmBean {
 	}
 	
 	
-	public boolean isTrailer() {
+	public String getTrailer() {
 		return trailer;
 	}
 
 
-	public void setTrailer(boolean trailer) {
+	public void setTrailer(String trailer) {
 		this.trailer = trailer;
 	}
 

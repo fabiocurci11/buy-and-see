@@ -74,7 +74,11 @@
 	<div id="div_trailer_acquista">
 		
 		<input class="input_hidden" type="hidden" name="titolo" value="drammatico">
-		<button type="submit" class="btn btn-primary btn-lg">Visiona Trailer</button>
+		<%if(trailer.equalsIgnoreCase("no")){%>
+		 	<button disabled type="submit" class="btn btn-primary btn-lg">Visiona Trailer</button>
+		<%} else{%>  
+			<button type="submit" class="btn btn-primary btn-lg">Visiona Trailer</button>
+		<%}%> 
 		
 		<%if(ub != null){%> 	
 		<form method="post" action="<%=response.encodeURL("acquista.jsp")%>" id="form_acquista">
@@ -88,7 +92,8 @@
 				<input class="input_hidden" type="hidden" name="idfilm" value="<%=idfilm%>">
 				<button type="submit" class="btn btn-primary btn-lg" style="float: right;">Login per acquistare</button>
 			</form>
-			<%}%> 
+		<%}%> 
+			
 	</div>
 	
 	

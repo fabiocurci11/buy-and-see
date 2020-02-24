@@ -45,7 +45,7 @@ public class Film_acquistati extends HttpServlet {
 			out.append(" \"genere\":\""+ temp.getGenere() +"\",");
 			out.append(" \"lingua\":\""+ temp.getLingua() +"\",");
 			out.append(" \"descrizione\":\""+ temp.getDescrizione() +"\",");
-			out.append(" \"trailer\":\""+ temp.isTrailer()+"\",");
+			out.append(" \"trailer\":\""+ temp.getTrailer()+"\",");
 			out.append(" \"prezzo\":\""+ temp.getPrezzo() +"\",");
 			out.append(" \"file\":\""+ temp.getFile() +"\"");
 			

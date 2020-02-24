@@ -53,27 +53,27 @@
     	
     	<div class="form-group">
       		<label for="pwd">Genere:</label>
-      		<input type="password" class="form-control"  placeholder="Inserisci Genere" name="genere" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci Genere" name="genere" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Lingua:</label>
-      		<input type="password" class="form-control"  placeholder="Inserisci codice di Lingua" name="lingua" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci codice di Lingua" name="lingua" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Descrizione:</label>
-      		<input type="password" class="form-control" placeholder="Inserisci Descrizione" name="descrizione" style="width:70%;">
+      		<input type="text" class="form-control" placeholder="Inserisci Descrizione" name="descrizione" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Trailer:</label>
-      		<input type="password" class="form-control"  placeholder="Inserisci Trailer" name="trailer" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci Trailer" name="trailer" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
       		<label for="pwd">Prezzo:</label>
-      		<input type="password" class="form-control"  placeholder="Inserisci Prezzo" name="prezzo" style="width:70%;">
+      		<input type="text" class="form-control"  placeholder="Inserisci Prezzo" name="prezzo" style="width:70%;">
     	</div>
     	
     	<div class="form-group">
@@ -199,7 +199,7 @@ function validateAnnoUscitaAdd(annoUscita){
 function validateDurataAdd(durata){
 	//alert("validiamo: " + email);
 	//var letters = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w+)+$/;
-	var letters = /^[0-9,.]{1,4}$/;   
+	var letters = /^[0-9,.]{1,7}$/;   
 	
 	if(numero.value.match(letters)){
 		//alert("email ok");
@@ -268,7 +268,7 @@ function validateDescrizioneAdd(descrizione){
 
 function validateTrailerAdd(trailer){
 	//alert("validiamo: " + psw);
-	var letters = /^[a-zA-Z]{0,2}$/;//può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
+	var letters = /^[a-zA-Z]{0,5}$/;//può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
 	if(trailer.value.match(letters)){
 		//alert("psw ok");
 		trailer.style.borderColor = "green";
@@ -285,7 +285,7 @@ function validateTrailerAdd(trailer){
 
 function validatePrezzoAdd(prezzo){
 	//alert("validiamo: " + psw);
-	var letters = /^[0-9.,]{0,6}$/; //può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
+	var letters = /^[0-9.,]{1,6}$/; //può contenere (tutto tranne spazi), lunghezza minimo 5 max 15 caratteri
 	if(codice.value.match(letters)){
 		//alert("psw ok");
 		codice.style.borderColor = "green";

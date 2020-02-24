@@ -83,7 +83,7 @@ public class AcquistoDAO {
 					f.setGenere(res.getString("genere"));
 					f.setLingua(res.getString("lingua"));
 					f.setDescrizione(res.getString("descrizione"));
-					f.setTrailer(res.getBoolean("trailer"));
+					f.setTrailer(res.getString("trailer"));
 					f.setPrezzo(res.getFloat("prezzo"));
 					f.setFile(res.getString("file"));
 		

@@ -49,12 +49,10 @@ public class Aggiungi_film extends HttpServlet {
 		
 		Integer annoUscita_p = null;
 		Double durata_p = null; 
-		Boolean trailer_p = null;
 		Float prezzo_p=null;
 		 
 		if(annoUscita != "") annoUscita_p = Integer.parseInt(annoUscita);
 		if(durata != "") durata_p = Double.parseDouble(durata);
-		if(trailer != "") trailer_p = Boolean.parseBoolean(trailer);
 		if(prezzo != "") prezzo_p = Float.parseFloat(prezzo);
 		
 		String img_path = "img_db/";
@@ -69,7 +67,7 @@ public class Aggiungi_film extends HttpServlet {
 		
 		System.out.println("execute method dao");	
 		FilmDAO fd = new FilmDAO();
-		fd.doSave(titolo, img_path, annoUscita_p, durata_p , genere , lingua , descrizione, trailer_p,  prezzo_p, file_path);
+		fd.doSave(titolo, img_path, annoUscita_p, durata_p , genere , lingua , descrizione, trailer,  prezzo_p, file_path);
 		
 		
 	}

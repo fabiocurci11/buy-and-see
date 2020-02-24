@@ -38,7 +38,7 @@ public class FilmDAO {
 				f.setGenere(res.getString("genere"));
 				f.setLingua(res.getString("lingua"));
 				f.setDescrizione(res.getString("descrizione"));
-				f.setTrailer(res.getBoolean("trailer"));
+				f.setTrailer(res.getString("trailer"));
 				f.setPrezzo(res.getFloat("prezzo"));
 				f.setFile(res.getString("file"));
 	
@@ -95,7 +95,7 @@ public class FilmDAO {
 				f.setGenere(res.getString("genere"));
 				f.setLingua(res.getString("lingua"));
 				f.setDescrizione(res.getString("descrizione"));
-				f.setTrailer(res.getBoolean("trailer"));
+				f.setTrailer(res.getString("trailer"));
 				f.setPrezzo(res.getFloat("prezzo"));
 				f.setFile(res.getString("file"));
 	
@@ -122,7 +122,7 @@ public class FilmDAO {
 	
 	
 	
-	public synchronized void doSave(String titolo, String immagine, Integer annoUscita, Double durata, String genere, String lingua, String descrizione, Boolean trailer, Float prezzo, String file) {
+	public synchronized void doSave(String titolo, String immagine, Integer annoUscita, Double durata, String genere, String lingua, String descrizione, String trailer, Float prezzo, String file) {
 		Connection conn=null;
 		PreparedStatement ps=null;
 		try {
@@ -170,8 +170,8 @@ public class FilmDAO {
 			
 			
 			if(trailer != null) 
-				ps.setBoolean(8, trailer);
-			else ps.setNull(8, java.sql.Types.BOOLEAN); 
+				ps.setString(8, trailer);
+			else ps.setNull(8, java.sql.Types.VARCHAR); 
 
 			
 			if(prezzo != null) {
