@@ -26,7 +26,7 @@
 			<a href="film_acquistati.jsp"><input type="image" src="img/film_acquistati.png" class="img" onclick=""></a>
 		</div> 
 	</div>
-	
+	<!-- 
 	<div id="div_profilo">
 		<div class="utente_info">
 			<h3 style="color: black;">I miei ordini</h3>
@@ -47,7 +47,7 @@
 			<input type="image" src="img/ordini.png" class="img" onclick="">
 		</div> 
 	</div>
-	
+	 -->
 </div>
 	
 

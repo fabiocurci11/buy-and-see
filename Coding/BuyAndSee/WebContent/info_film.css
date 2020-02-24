@@ -4,13 +4,17 @@
 
 #div_info_film{
 	height: 90%;
-	background-color: white;
+	background-color: #343a4073;
 }
 
 .card{
 	width: 30%;
-    margin: auto;
+    /*margin: auto;
 	background-color: bisque;
+	*/
+	border: 0px;
+    margin: auto;
+    background-color: #6e7174;
 } 
 
 
@@ -24,7 +28,7 @@
 
 #div_descr{
 	height: 40%;
-    background-color: burlywood;
+    background-color: #343a40;
     width: 50%;
     margin: auto;
 }
@@ -35,7 +39,7 @@
 
 #div_trailer_acquista{
 	height: 40%;
-    background-color: #343a40;
+    background-color: #6e7174;
     width: 35%;
     margin: auto;
     padding: 25px;

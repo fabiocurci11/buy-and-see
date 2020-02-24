@@ -66,7 +66,7 @@
 
 	<div id="div_descr">
 		<h4 class="card-title">Descrizione</h4>
-		<p>18 Regali, film diretto da Francesco Amato, è la storia di Elisa (Vittoria Puccini), che a 40 anni ha perso la vita a causa di un male incurabile, lasciando il marito e la figlioletta di solo un anno. Sapendo di non avere speranze di vita, la donna prima della sua dipartita, pensa a come restare vicino alla piccola dopo la sua morte. È così che ogni anno nel giorno del suo compleanno Anna (Benedetta Porcaroli) riceve un regalo da suo padre Alessio (Edoardo Leo) per conto della madre, fino alla maggiore età. Con questi diciotto regali Elisa dimostra a sua figlia che, nonostante un fato avverso, lei c'è e che le è accanto.</p>
+		<p><%=descrizione %></p>
 	</div>
 	
 	

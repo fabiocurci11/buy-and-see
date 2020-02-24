@@ -36,13 +36,13 @@
 	
  	<%if(tipo_usr.equals(gc)){%> 
  		<div id="add_film">
-			<h3>aggiungi film</h3>
+			<h3>Aggiungi film</h3>
 			<button class="btn btn-primary" type="submit" style="width: 50%;" value="0">
 				<a href="addFilm.jsp"><img src="img/add.png" id="img_add" width="15%"></a>
 			</button>
 		</div>
 	<%}%> 
-	
+	 
 	
 	<div id="dislay_all_film">
 				
