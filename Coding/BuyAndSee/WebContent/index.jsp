@@ -29,14 +29,15 @@
 	
 	if(tipo_usr.equals(gc)){ System.out.println("NELL IF DEL TIPO: " + tipo_usr);}
 	else{System.out.println("false ");}
+	
+	
+	
 %> 
 
 
 	<h1 id="h1_page">HOME</h1>
 	
- 	<%%> 
-
-	
+ 	
 	<div id="dislay_all_film">
 				
 		  		 

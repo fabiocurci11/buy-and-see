@@ -3,11 +3,13 @@ package controller;
 import java.io.IOException;
 import java.sql.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.FilmDAO;
 
@@ -68,6 +70,11 @@ public class Aggiungi_film extends HttpServlet {
 		System.out.println("execute method dao");	
 		FilmDAO fd = new FilmDAO();
 		fd.doSave(titolo, img_path, annoUscita_p, durata_p , genere , lingua , descrizione, trailer,  prezzo_p, file_path);
+
+		
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+		requestDispatcher.forward(request, response);
+		
 		
 		
 	}
